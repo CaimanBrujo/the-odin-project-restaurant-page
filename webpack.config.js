@@ -4,22 +4,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
+        filename: 'main.js',
         clean: true,
     },
     mode: 'development',
-    devServer: {
-        static: {
-            directory: path.resolve(__dirname, 'dist'),
+    module: {
+        rules: [
+        {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
         },
-        port: 8080,
-        open: true,
-        hot: true,
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/template.html',
+        template: './src/template.html',
+        filename: 'index.html',
         }),
     ],
+    devServer: {
+        static: './dist',
+    },
 };
