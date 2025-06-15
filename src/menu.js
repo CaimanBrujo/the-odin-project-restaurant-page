@@ -1,20 +1,40 @@
 export default function loadMenu() {
     const content = document.querySelector('#content');
-    const menuDiv = document.createElement('div');
-    menuDiv.classList.add('menu');
+    content.innerHTML = '';
 
-    const heading = document.createElement('h1');
-    heading.textContent = 'Our Menu';
+    const menuSection = document.createElement('section');
+    menuSection.classList.add('section', 'menu-section');
 
-    const item1 = document.createElement('p');
-    item1.textContent = '🧀 Swamp Cheese Nuggets';
+    const heading = document.createElement('h2');
+    heading.classList.add('section-title');
+    heading.textContent = 'Our Signature Dishes';
 
-    const item2 = document.createElement('p');
-    item2.textContent = '🐸 Grilled Frog Legs';
+    const menuList = document.createElement('ul');
+    menuList.classList.add('menu-list');
 
-    menuDiv.appendChild(heading);
-    menuDiv.appendChild(item1);
-    menuDiv.appendChild(item2);
+    const items = [
+        { name: '🧀 Swamp Cheese Nuggets', desc: 'Crispy, gooey and slightly toxic.' },
+        { name: '🐸 Grilled Frog Legs', desc: 'Straight from the bog, charred to perfection.' },
+    ];
 
-    content.appendChild(menuDiv);
+    items.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('menu-item');
+
+        const itemTitle = document.createElement('h3');
+        itemTitle.classList.add('menu-item-title');
+        itemTitle.textContent = item.name;
+
+        const itemDesc = document.createElement('p');
+        itemDesc.classList.add('menu-item-desc');
+        itemDesc.textContent = item.desc;
+
+        listItem.appendChild(itemTitle);
+        listItem.appendChild(itemDesc);
+        menuList.appendChild(listItem);
+    });
+
+    menuSection.appendChild(heading);
+    menuSection.appendChild(menuList);
+    content.appendChild(menuSection);
 }
