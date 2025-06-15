@@ -1,3 +1,6 @@
+import swampFood from './assets/images/swamp-food-1.webp';
+
+
 export default function loadHome() {
     const content = document.querySelector('#content');
     
@@ -11,7 +14,7 @@ export default function loadHome() {
     description.textContent = 'The best swamp-based delicacies in the multiverse.';
 
     const img = document.createElement('img');
-    img.src = 'https://source.unsplash.com/600x300/?restaurant';
+    img.src = swampFood;
     img.alt = 'Delicious food';
 
     homeDiv.appendChild(heading);

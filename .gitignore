@@ -1,3 +1,5 @@
 node_modules
 dist
 .DS_Store
+
+# Dist is deployed to gh-pages via git subtree

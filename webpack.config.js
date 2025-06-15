@@ -11,16 +11,20 @@ module.exports = {
     mode: 'development',
     module: {
         rules: [
-        {
-            test: /\.css$/i,
-            use: ['style-loader', 'css-loader'],
-        },
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-        template: './src/template.html',
-        filename: 'index.html',
+            template: './src/template.html',
+            filename: 'index.html',
         }),
     ],
     devServer: {
